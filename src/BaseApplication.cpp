@@ -19,6 +19,7 @@ BaseApplication::BaseApplication()
     mKeyboard(0),
     mCameraMan(0)
 {
+    mFSLayer = OGRE_NEW_T(Ogre::FileSystemLayer, Ogre::MEMCATEGORY_GENERAL)(OGRE_VERSION_NAME);
 }
 
 //-------------------------------------------------------------------------------------
@@ -33,6 +34,7 @@ BaseApplication::~BaseApplication()
     	windowClosed(mWindow);
 	}
     if (mRoot) { delete mRoot; }
+    OGRE_DELETE_T(mFSLayer, FileSystemLayer, Ogre::MEMCATEGORY_GENERAL);
 }
 
 //-------------------------------------------------------------------------------------
@@ -174,7 +176,8 @@ void BaseApplication::run()
 //-------------------------------------------------------------------------------------
 bool BaseApplication::setup()
 {
-    mRoot = new Ogre::Root(mPluginsCfg);
+    mRoot = new Ogre::Root(mPluginsCfg, mFSLayer->getWritablePath("ogre.cfg"),
+				mFSLayer->getWritablePath("ogre.log"));
 
     setupResources();
 

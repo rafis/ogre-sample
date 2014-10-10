@@ -10,6 +10,7 @@
 #include <OgreViewport.h>
 #include <OgreSceneManager.h>
 #include <OgreRenderWindow.h>
+#include <OgreFileSystemLayer.h>
 #include <OgreConfigFile.h>
 
 #include <OISEvents.h>
@@ -54,14 +55,15 @@ protected:
     virtual void windowResized(Ogre::RenderWindow *); //Adjust mouse clipping area
     virtual void windowClosed(Ogre::RenderWindow *); //Unattach OIS before window shutdown (very important under Linux)
 
+    Ogre::FileSystemLayer* mFSLayer; // File system abstraction layer
+    Ogre::String mResourcesCfg;
+    Ogre::String mPluginsCfg;
+
     Ogre::Root *mRoot;
     Ogre::Camera *mCamera;
     Ogre::SceneManager *mSceneMgr;
     Ogre::RenderWindow *mWindow;
-    Ogre::String mResourcesCfg;
-    Ogre::String mPluginsCfg;
 	char mPolygonRenderingMode;
-
     bool mShutDown;
 
     //OIS Input devices
