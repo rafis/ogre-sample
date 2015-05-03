@@ -1,9 +1,10 @@
 ogre-sample
 ===========
 
-Ogre3D project template is ~~ready to be used~~ (make fork and pull requests) in experimental projects to learn Ogre3D, oriented to:
+Ogre3D project template is ~~ready to be used~~ (make fork and pull requests to make it usable)
+in experimental projects to learn Ogre3D, featuring:
 
-* Ogre3D 1.9, 1.10
+* Oriented to Ogre3D 1.9, 1.10 (for Ogre3D 2.1 look [here](https://github.com/rafis/ogre2-sample))
 * OIS Mouse and Keyboard
 * Basic camera controller (striped from OgreBites)
 * No GUI/HUD/SDK Tray
